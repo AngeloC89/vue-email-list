@@ -17,12 +17,15 @@
   <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script type="module" src="./js/script.js"></script>
-  <title>Boolzapp</title>
+  <title>Vue ail List</title>
 </head>
 <body>
 
 <div id="app">
-  
+  <ul class="list-group">
+    <li class="list-group-item" v-for="(item, index) in mailList">Cras justo odio</li>
+  </ul>
+
   
 </div>
    

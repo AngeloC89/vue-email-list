@@ -6,6 +6,7 @@ const { createApp } = Vue;
 createApp({
   data() { //metodo data()
     return {
+      mailList: null,
       apiLink: 'https://flynn.boolean.careers/exercises/api/random/mail',
 
 
@@ -13,10 +14,22 @@ createApp({
   },
   methods: {
     getRandomNumber() {
-      axios.get(this.apiLink).then((res) => {
-        console.log(res.data);
+      const mails = []
+      for (let i = 0; i < 10; i++) {
 
-      })
+        axios.get(this.apiLink).then((res) => {
+          console.log(res.data);
+          let mail = res.data.response;
+        
+       
+
+        })
+       
+
+
+      }
+     
+      
 
     }
 
