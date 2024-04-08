@@ -8,6 +8,7 @@ createApp({
     return {
       mailList: [],
       apiLink: 'https://flynn.boolean.careers/exercises/api/random/mail',
+      listLength: 10,
 
 
     }
@@ -15,24 +16,25 @@ createApp({
   methods: {
     getRandomMails() {
       const mails = [];
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < this.listLength; i++) {
 
         axios.get(this.apiLink).then((res) => {
-          
+
           let mail = res.data.response;
           mails.push(mail)
           console.log(mail);
-          if (i === 9) {
+          if (mails.length === this.listLength) {
             this.mailList = [...mails]
           }
+
         });
       }
       console.log(this.mailList);
     }
   },
- created() {
+  created() {
     this.getRandomMails()
-    
+
 
   },
 
