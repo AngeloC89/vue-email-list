@@ -6,36 +6,33 @@ const { createApp } = Vue;
 createApp({
   data() { //metodo data()
     return {
-      mailList: null,
+      mailList: [],
       apiLink: 'https://flynn.boolean.careers/exercises/api/random/mail',
 
 
     }
   },
   methods: {
-    getRandomNumber() {
-      const mails = []
+    getRandomMails() {
+      const mails = [];
       for (let i = 0; i < 10; i++) {
 
         axios.get(this.apiLink).then((res) => {
-          console.log(res.data);
+          
           let mail = res.data.response;
-        
-       
-
-        })
-       
-
-
+          mails.push(mail)
+          console.log(mail);
+          if (i === 9) {
+            this.mailList = [...mails]
+          }
+        });
       }
-     
-      
-
+      console.log(this.mailList);
     }
-
   },
-  mounted() {
-    this.getRandomNumber()
+ created() {
+    this.getRandomMails()
+    
 
   },
 

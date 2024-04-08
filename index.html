@@ -23,8 +23,9 @@
 
 <div id="app">
   <ul class="list-group">
-    <li class="list-group-item" v-for="(item, index) in mailList">Cras justo odio</li>
+    <li class="list-group-item" v-for="(item, index) in mailList">{{ item }}</li>
   </ul>
+  <button class="btn btn-outline-dark " @click="getRandomMails()">Nuova Lista</button>
 
   
 </div>
