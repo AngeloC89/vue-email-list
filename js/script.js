@@ -23,17 +23,21 @@ createApp({
           let mail = res.data.response;
           mails.push(mail)
           console.log(mail);
-          if (mails.length === this.listLength) {
-            this.mailList = [...mails]
+          if (i === this.listLength - 1) {
+            if (mails.length === this.listLength) {
+             
+                this.mailList = [...mails];
+         
+            }
           }
-
         });
       }
       console.log(this.mailList);
     }
   },
-  created() {
+  mounted() {
     this.getRandomMails()
+    console.log(this.mailList)
 
 
   },
