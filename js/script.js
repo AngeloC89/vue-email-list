@@ -11,6 +11,7 @@ createApp({
       listLength: 10,
 
 
+
     }
   },
   methods: {
@@ -23,21 +24,17 @@ createApp({
           let mail = res.data.response;
           mails.push(mail)
           console.log(mail);
-          if (i === this.listLength - 1) {
-            if (mails.length === this.listLength) {
-             
-                this.mailList = [...mails];
-         
-            }
+          if (mails.length === this.listLength) {
+            this.mailList = [...mails];
           }
         });
       }
       console.log(this.mailList);
     }
   },
-  mounted() {
+  created() {
     this.getRandomMails()
-    console.log(this.mailList)
+
 
 
   },
